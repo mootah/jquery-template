@@ -1,0 +1,8 @@
+extends ./layouts/_default
+
+include ./components/_image
+
+block main
+  h1.title INDEX PAGE
+  +image({name: "sample.jpg", alt: "sample"}, {class: "sample-image"})
+

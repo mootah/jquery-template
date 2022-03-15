@@ -1,0 +1,12 @@
+mixin image(ctx, attrs)
+  //- ctx: { name: "image file name", alt: "alt text" }
+  picture.image&attributes(attrs)
+    source(
+      type="image/webp",
+      srcset=require("../assets/images/" + ctx.name + "?format=webp").srcSet
+    )
+    img(
+      src=require("../assets/images/" + ctx.name).src,
+      srcset=require("../assets/images/" + ctx.name).srcSet,
+      alt=ctx.alt
+    )
