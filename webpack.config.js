@@ -88,6 +88,7 @@ const app = {
       },
       {
         test: /\.(png|jpe?g|jpeg|gif)$/,
+        type: "javascript/auto",
         use: [
           {
             loader: "url-loader",
@@ -98,7 +99,7 @@ const app = {
               sizes: [360, 640, 1080, 1920],
               placeholder: true,
               placeholderSize: 64,
-              outputPath: "images/",
+              outputPath: "/images/",
               name: "[name].[width].[ext]",
             },
           },
