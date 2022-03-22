@@ -3,6 +3,19 @@ extends ./layouts/_default
 include ./components/_image
 
 block main
-  h1.title INDEX PAGE
-  +image({name: "sample.jpg", alt: "sample"}, {class: "sample-image"})
-
+  section#hero.hero
+    h1.hero-title jQuery Template
+    p.hero-desc subtitle here
+    .hero-sns
+      a.hero-sns-item.btn(
+        aria-label="twitter",
+        href="https://twitter.com/",
+        target="_blank"
+      )
+        include ./components/svgs/_twitter
+      a.hero-sns-item.btn(
+        aria-label="github",
+        href="https://github.com/",
+        target="_blank"
+      )
+        include ./components/svgs/_github

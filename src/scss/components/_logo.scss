@@ -1,0 +1,17 @@
+// after btn
+
+.logo {
+  display: flex; /* flex */
+  flex-shrink: 0; /* shrink-0 */
+  justify-content: center; /* justify-center */
+  align-items: center; /* items-center */
+  width: 4rem;
+  height: 4rem;
+  z-index: 20;
+
+  svg {
+    fill: currentColor;
+    width: 2rem;
+    height: 2rem;
+  }
+}

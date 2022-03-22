@@ -1,6 +1,4 @@
 const path = require("path")
-const globule = require("globule")
-const glob = require("glob")
 const webpack = require("webpack")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
@@ -23,23 +21,30 @@ const pugsGlobPlugins = (entries, srcPath) => {
 
 const entries = {
   index: ["./src/ts/index.ts", "./src/scss/index.scss"],
-  about: ["./src/ts/about.ts", "./src/scss/about.scss"],
+  subpage: ["./src/ts/subpage.ts", "./src/scss/subpage.scss"],
 }
 
 const app = {
   entry: entries,
   output: {
-    publicPath: "",
+    publicPath: "/",
     path: path.resolve(__dirname, "dist"),
     filename: "js/[name].[contenthash].js",
   },
-  target: ["web", "es5"],
+  // target: ["web", "es5"],
+  target: "web", // for hot reload
   resolve: {
     extensions: [".ts", ".js"],
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
   },
   devtool: "source-map",
   watchOptions: {
     ignored: /node_modules/,
+  },
+  performance: {
+    hints: false,
   },
   devServer: {
     static: "dist",
@@ -73,7 +78,14 @@ const app = {
             loader: "postcss-loader",
             options: {
               postcssOptions: {
-                plugins: [require("autoprefixer")({ grid: true })],
+                plugins: [
+                  require("autoprefixer")({ grid: true }),
+                  require("@fullhuman/postcss-purgecss")({
+                    keyframes: true,
+                    content: ["./src/**/*.pug"],
+                    safelist: [/^\-js\-/],
+                  }),
+                ],
               },
             },
           },
@@ -104,6 +116,13 @@ const app = {
             },
           },
         ],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: "asset",
+        generator: {
+          filename: `./fonts/[name][ext]`,
+        },
       },
     ],
   },

@@ -1,0 +1,22 @@
+.heading {
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: 700;
+
+  span {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: $primary;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      margin-right: 0.5rem;
+      width: 3rem;
+      height: 1px;
+      background-color: $primary;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.header {
+  position: fixed; /* fixed */
+  width: 100%; /* w-full */
+  z-index: 10; /* z-10 */
+  background-color: $white;
+}
+
+.header-inner {
+  position: relative; /* relative */
+  display: flex; /* flex */
+  justify-content: space-between; /* justify-between */
+  width: 100%; /* w-full */
+  height: 4rem;
+}
+
+.main {
+  position: relative; /* relative */
+  display: flex; /* flex */
+  flex-direction: column; /* flex-col */
+  // gap: 6rem;
+}
+
+.footer {
+  display: flex; /* flex */
+  justify-content: center; /* justify-center */
+  align-items: center; /* items-center */
+  gap: 0.25rem;
+  height: 4rem;
+  font-size: 0.8rem;
+  color: $white;
+  background-color: $black;
+}
+
+/* lg */
+@media (min-width: 1024px) {
+  .header-inner {
+    margin: 0 auto;
+    max-width: 1024px;
+  }
+}

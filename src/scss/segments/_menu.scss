@@ -1,0 +1,54 @@
+.menu {
+  position: absolute; /* absolute */
+  opacity: 0;
+  visibility: hidden; /* invisible */
+  width: 100%; /* w-full */
+  height: 100vh;
+  background-color: $white;
+  z-index: 10;
+  transition: opacity 0.5s, visibility 0.5s;
+
+  &.-js-open {
+    opacity: 1;
+    visibility: visible; /* visible */
+  }
+}
+
+.menu-list {
+  display: flex; /* flex */
+  flex-direction: column; /* flex-col */
+  align-items: center; /* items-center */
+  justify-content: center; /* justify-center */
+  height: 100%; /* h-full */
+}
+
+.menu-list-item {
+  height: 4rem;
+  width: 200px;
+
+  a {
+    display: flex; /* flex */
+    height: 100%; /* h-full */
+    align-items: center; /* items-center */
+    padding: 0 1rem;
+    font-size: small;
+    font-weight: 700; /* font-bold */
+  }
+}
+
+/* md */
+@media (min-width: 768px) {
+  .menu {
+    opacity: 1;
+    visibility: visible; /* visible */
+    height: 4rem;
+  }
+  .menu-list {
+    flex-direction: row; /* flex-row */
+    justify-content: flex-end; /* justify-end */
+  }
+  .menu-list-item {
+    height: 100%; /* h-full */
+    width: auto;
+  }
+}
